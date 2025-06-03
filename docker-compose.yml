@@ -1,24 +1,23 @@
-version: "3.8"
+version: "3.9"
 
 services:
     app:
-        build:
-            context: .
-            dockerfile: Dockerfile
+        build: .
+        image: phearunum/laravel-api:latest
         container_name: laravel-app
         restart: unless-stopped
         volumes:
             - .:/var/www/html
         working_dir: /var/www/html
         ports:
-            - "9000:9000" # Expose PHP-FPM port if needed
+            - "9000:80" # Expose PHP-FPM port if needed
         environment:
             APP_ENV: production
             APP_DEBUG: false
             APP_KEY: base64:WZ9qYrj8+3gKlzJp7PcM7c3RFVXt3PZxJDFUluywZcE=
             DB_CONNECTION: mysql
-            DB_HOST: 194.233.95.128
+            DB_HOST: xxxx
             DB_PORT: 3306
             DB_DATABASE: laravel_db
-            DB_USERNAME: laravel_db
-            DB_PASSWORD: yFbpShGyrehBtGxx
+            DB_USERNAME: laravel
+            DB_PASSWORD: P@ssw0rd
